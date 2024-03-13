@@ -1,19 +1,19 @@
 import { Text, Pill } from "../../components";
 import { Toolbar, IconButton, Tooltip } from "@material-ui/core";
-import FormikInput from "../../components/formik/FormikInput";
+// import FormikInput from "../../components/formik/FormikInput";
 import FormikJsonInput from "../../components/formik/FormikJsonInput";
 import { makeStyles } from "@material-ui/styles";
 import _ from "lodash";
 import { Form, setNestedObjectValues, withFormik } from "formik";
 import { useWorkflowDef } from "../../data/workflow";
-import FormikVersionDropdown from "../../components/formik/FormikVersionDropdown";
+// import FormikVersionDropdown from "../../components/formik/FormikVersionDropdown";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
-import SaveIcon from "@material-ui/icons/Save";
+// import SaveIcon from "@material-ui/icons/Save";
 import { colors } from "../../theme/variables";
 import { timestampRenderer } from "../../utils/helpers";
 import * as Yup from "yup";
-import FormikWorkflowNameInput from "../../components/formik/FormikWorkflowNameInput";
+// import FormikWorkflowNameInput from "../../components/formik/FormikWorkflowNameInput";
 
 const useStyles = makeStyles({
   name: {
@@ -133,16 +133,16 @@ function WorkbenchForm(props) {
     });
   }
 
-  function handleSave() {
-    validateForm().then((errors) => {
-      if (Object.keys(errors).length === 0) {
-        const payload = formDataToRunPayload(values);
-        saveRun(payload);
-      } else {
-        setTouched(setNestedObjectValues(errors, true));
-      }
-    });
-  }
+  // function handleSave() {
+  //   validateForm().then((errors) => {
+  //     if (Object.keys(errors).length === 0) {
+  //       const payload = formDataToRunPayload(values);
+  //       saveRun(payload);
+  //     } else {
+  //       setTouched(setNestedObjectValues(errors, true));
+  //     }
+  //   });
+  // }
 
   return (
     <Form className={classes.main}>
@@ -154,18 +154,18 @@ function WorkbenchForm(props) {
           </IconButton>
         </Tooltip>
 
-        <Tooltip title="Save Workflow Trigger">
-          <div>
-            <IconButton disabled={!dirty} onClick={handleSave}>
-              <SaveIcon />
-            </IconButton>
-          </div>
-        </Tooltip>
+        {/*<Tooltip title="Save Workflow Trigger">*/}
+        {/*  <div>*/}
+        {/*    <IconButton disabled={!dirty} onClick={handleSave}>*/}
+        {/*      <SaveIcon />*/}
+        {/*    </IconButton>*/}
+        {/*  </div>*/}
+        {/*</Tooltip>*/}
 
         <Tooltip title="Populate Input Parameters">
           <div>
             <IconButton
-              disabled={!values.workflowName}
+              // disabled={!values.workflowName}
               onClick={triggerPopulateInput}
             >
               <PlaylistAddIcon />
@@ -178,17 +178,17 @@ function WorkbenchForm(props) {
       </Toolbar>
 
       <div className={classes.fields}>
-        <FormikWorkflowNameInput
-          fullWidth
-          label="Workflow Name"
-          name="workflowName"
-        />
+        {/*<FormikWorkflowNameInput*/}
+        {/*  fullWidth*/}
+        {/*  label="Workflow Name"*/}
+        {/*  name="workflowName"*/}
+        {/*/>*/}
 
-        <FormikVersionDropdown
-          fullWidth
-          label="Workflow version"
-          name="workflowVersion"
-        />
+        {/*<FormikVersionDropdown*/}
+        {/*  fullWidth*/}
+        {/*  label="Workflow version"*/}
+        {/*  name="workflowVersion"*/}
+        {/*/>*/}
 
         <FormikJsonInput
           reinitialize
@@ -197,15 +197,15 @@ function WorkbenchForm(props) {
           name="workflowInput"
         />
 
-        <FormikInput fullWidth label="Correlation ID" name="correlationId" />
+        {/*<FormikInput fullWidth label="Correlation ID" name="correlationId" />*/}
 
-        <FormikJsonInput
-          className={classes.field}
-          reinitialize
-          height={200}
-          label="Task to Domain (JSON)"
-          name="taskToDomain"
-        />
+        {/*<FormikJsonInput*/}
+        {/*  className={classes.field}*/}
+        {/*  reinitialize*/}
+        {/*  height={200}*/}
+        {/*  label="Task to Domain (JSON)"*/}
+        {/*  name="taskToDomain"*/}
+        {/*/>*/}
       </div>
     </Form>
   );

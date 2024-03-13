@@ -3,11 +3,11 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { loader } from '@monaco-editor/react';
-import { Button, AppBar, Toolbar } from "@material-ui/core";
+import { AppBar, Toolbar } from "@material-ui/core";
 import AppLogo from "./plugins/AppLogo";
-import NavLink from "./components/NavLink";
+// import NavLink from "./components/NavLink";
 
-import WorkflowSearch from "./pages/executions/WorkflowSearch";
+// import WorkflowSearch from "./pages/executions/WorkflowSearch";
 import TaskSearch from "./pages/executions/TaskSearch";
 
 import Execution from "./pages/execution/Execution";
@@ -61,18 +61,18 @@ export default function App() {
           }}
         >
           <AppLogo />
-          <Button component={NavLink} path="/">
-            Executions
-          </Button>
-          <Button component={NavLink} path="/workflowDefs">
-            Definitions
-          </Button>
-          <Button component={NavLink} path="/taskQueue">
-            Task Queues
-          </Button>
-          <Button component={NavLink} path="/workbench">
-            Workbench
-          </Button>
+          {/*<Button component={NavLink} path="/">*/}
+          {/*  Executions*/}
+          {/*</Button>*/}
+          {/*<Button component={NavLink} path="/workflowDefs">*/}
+          {/*  Definitions*/}
+          {/*</Button>*/}
+          {/*<Button component={NavLink} path="/taskQueue">*/}
+          {/*  Task Queues*/}
+          {/*</Button>*/}
+          {/*<Button component={NavLink} path="/workbench">*/}
+          {/*  Workbench*/}
+          {/*</Button>*/}
           <CustomAppBarButtons />
 
           <div className={classes.toolbarRight}>
@@ -83,7 +83,7 @@ export default function App() {
       <div className={classes.body}>
         <Switch>
           <Route exact path="/">
-            <WorkflowSearch />
+            <Workbench />
           </Route>
           <Route exact path="/search/tasks">
             <TaskSearch />

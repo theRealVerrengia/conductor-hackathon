@@ -55,7 +55,7 @@ export default function ExecutionHistory({ run }) {
     <div className={classes.sidebar}>
       <Toolbar className={classes.toolbar}>
         <Text level={0} className={classes.title}>
-          Execution History
+          Response
         </Text>
         <IconButton onClick={handleRefresh}>
           <RefreshIcon />
@@ -82,7 +82,7 @@ export default function ExecutionHistory({ run }) {
         ))}
         {_.isEmpty(workflowRecords) && (
           <ListItem>
-            <ListItemText>No execution history.</ListItemText>
+            <ListItemText>No responses yet</ListItemText>
           </ListItem>
         )}
       </List>

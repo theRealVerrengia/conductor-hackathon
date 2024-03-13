@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Helmet } from "react-helmet";
-import RunHistory from "./RunHistory";
+// import RunHistory from "./RunHistory";
 import WorkbenchForm from "./WorkbenchForm";
 import { colors } from "../../theme/variables";
 import { useStartWorkflow } from "../../data/workflow";
@@ -52,7 +52,7 @@ export default function Workbench() {
   const classes = useStyles();
 
   const runHistoryRef = useRef();
-  const [run, setRun] = useState(undefined);
+  const [run] = useState(undefined);
 
   const { mutate: startWorkflow } = useStartWorkflow({
     onSuccess: (workflowId, variables) => {
@@ -60,17 +60,18 @@ export default function Workbench() {
     },
   });
 
-  const handleRunSelect = (run) => {
-    setRun(run);
-  };
+  // const handleRunSelect = (run) => {
+  //   setRun(run);
+  // };
 
-  const handleSaveRun = (runPayload) => {
-    const newRun = runHistoryRef.current.pushNewRun(runPayload);
-    setRun(newRun);
-    return newRun;
-  };
+  // const handleSaveRun = (runPayload) => {
+  //   const newRun = runHistoryRef.current.pushNewRun(runPayload);
+  //   setRun(newRun);
+  //   return newRun;
+  // };
 
   const handleExecuteRun = (createTime, runPayload) => {
+    console.log("following")
     startWorkflow({
       createTime,
       body: runPayload,
@@ -80,15 +81,15 @@ export default function Workbench() {
   return (
     <>
       <Helmet>
-        <title>Conductor UI - Workbench</title>
+        <title>ING UI - Workbench</title>
       </Helmet>
 
       <div className={classes.wrapper}>
-        <RunHistory ref={runHistoryRef} onRunSelected={handleRunSelect} />
+        {/*<RunHistory ref={runHistoryRef} onRunSelected={handleRunSelect} />*/}
 
         <WorkbenchForm
           selectedRun={run}
-          saveRun={handleSaveRun}
+          // saveRun={handleSaveRun}
           executeRun={handleExecuteRun}
         />
         <ExecutionHistory run={run} />
