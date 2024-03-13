@@ -59,7 +59,7 @@ Yup.addMethod(Yup.string, "isJson", function () {
   });
 });
 const validationSchema = Yup.object({
-  workflowName: Yup.string().required("Workflow Name is required"),
+  // workflowName: Yup.string().required("Workflow Name is required"),
   workflowInput: Yup.string().isJson(),
   taskToDomain: Yup.string().isJson(),
 });
@@ -79,7 +79,6 @@ function WorkbenchForm(props) {
     setFieldValue,
     dirty,
     selectedRun,
-    saveRun,
     executeRun,
   } = props;
   const classes = useStyles();
@@ -123,8 +122,8 @@ function WorkbenchForm(props) {
           executeRun(createTime, payload);
         } else {
           console.log("Executing new run. Save first then execute");
-          const newRun = saveRun(payload);
-          executeRun(newRun.createTime, payload);
+          // const newRun = saveRun(payload);
+          executeRun(new Date().getTime(), payload);
         }
       } else {
         // Handle validation error manually (not using handleSubmit)

@@ -176,7 +176,7 @@ export function useWorkflowNamesAndVersions() {
 }
 
 export function useStartWorkflow(callbacks) {
-  const path = "/workflow";
+  const path = "/scenario";
   const fetchContext = useFetchContext();
 
   return useMutation(

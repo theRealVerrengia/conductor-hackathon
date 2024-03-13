@@ -71,7 +71,6 @@ export default function Workbench() {
   // };
 
   const handleExecuteRun = (createTime, runPayload) => {
-    console.log("following")
     startWorkflow({
       createTime,
       body: runPayload,
